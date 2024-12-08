@@ -34,14 +34,20 @@ st.markdown(
 )
 
 # Input dari pengguna
-temperature = st.slider("Temperature (°C)", min_value=0.0, max_value=50.0, value=25.0, step=0.1)
-humidity = st.slider("Humidity (%)", min_value=0.0, max_value=100.0, value=50.0, step=0.1)
-pm25 = st.slider("PM.25", min_value=0.0, max_value=500.0, value=30.0, step=0.1)
-pm10 = st.slider("PM10", min_value=0.0, max_value=500.0, value=50.0, step=0.1)
-no2 = st.slider("NO2", min_value=0.0, max_value=100.0, value=20.0, step=0.1)
-so2 = st.slider("SO2", min_value=0.0, max_value=100.0, value=10.0, step=0.1)
-co = st.slider("CO", min_value=0, max_value=50, value=1, step=1)
-proximity_to_industrial_areas = st.slider("Proximity To Industrial Areas (km)", min_value=0.0, max_value=50.0, value=10.0, step=0.1)
+col1, col2 = st.columns(2)
+
+with col1:
+    temperature = st.number_input("Temperature (°C)", min_value=0.0, max_value=50.0, value=25.0, step=0.1)
+    humidity = st.number_input("Humidity (%)", min_value=0.0, max_value=100.0, value=50.0, step=0.1)
+    pm25 = st.number_input("PM25", min_value=0.0, max_value=500.0, value=30.0, step=0.1)
+    pm10 = st.number_input("PM10", min_value=0.0, max_value=500.0, value=50.0, step=0.1)
+
+with col2:
+    no2 = st.number_input("NO2", min_value=0.0, max_value=100.0, value=20.0, step=0.1)
+    so2 = st.number_input("SO2", min_value=0.0, max_value=100.0, value=10.0, step=0.1)
+    co = st.number_input("CO", min_value=0, max_value=50, value=1, step=1)
+    proximity_to_industrial_areas = st.number_input("Proximity To Industrial Areas (km)", min_value=0.0, max_value=50.0, value=10.0, step=0.1)
+
 population_density = st.number_input("Population Density (people/km²)", min_value=0.0, value=100.0, step=1.0)
 
 # Tombol Prediksi
