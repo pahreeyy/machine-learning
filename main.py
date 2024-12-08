@@ -8,7 +8,7 @@ encoder = joblib.load('encoder.pkl')
 
 # Tambahkan Header
 st.markdown(
-    
+    """
     <style>
     body {
         background-color: #1E1E1E;
@@ -29,14 +29,14 @@ st.markdown(
     }
     </style>
     <div class="title">Prediksi Polusi Udara</div>
-    ,
+    """,
     unsafe_allow_html=True,
 )
 
 # Input dari pengguna
 temperature = st.slider("Temperature (°C)", min_value=0.0, max_value=50.0, value=25.0, step=0.1)
 humidity = st.slider("Humidity (%)", min_value=0.0, max_value=100.0, value=50.0, step=0.1)
-pm25 = st.slider("PM2.5", min_value=0.0, max_value=500.0, value=30.0, step=0.1)
+pm25 = st.slider("PM25", min_value=0.0, max_value=500.0, value=30.0, step=0.1)
 pm10 = st.slider("PM10", min_value=0.0, max_value=500.0, value=50.0, step=0.1)
 no2 = st.slider("NO2", min_value=0.0, max_value=100.0, value=20.0, step=0.1)
 so2 = st.slider("SO2", min_value=0.0, max_value=100.0, value=10.0, step=0.1)
@@ -54,3 +54,11 @@ if st.button("Prediksi"):
         st.success(f"Air Quality: {pred_quality}")
     except Exception as e:
         st.error(f"Error: {e}")
+
+# Footer
+st.markdown(
+    """
+    <div class="footer">© 2024, Loyo Tapi Ayo | All Rights Reserved.</div>
+    """,
+    unsafe_allow_html=True,
+)
