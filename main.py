@@ -9,11 +9,15 @@ encoder = joblib.load('encoder.pkl')  # Pastikan encoder juga disimpan
 st.title("Prediksi Polusi Udara")
 
 # Input dari pengguna
+Temperature = st.number_input("Temperature", min_value=0.0, format="%.2f")
+Humidity = st.number_input("PM25", min_value=0.0, format="%.2f")
 pm25 = st.number_input("PM25", min_value=0.0, format="%.2f")
 pm10 = st.number_input("PM10", min_value=00.0, format="%.1f")
 no2 = st.number_input("NO2", min_value=00.0, format="%.1f")
 so2 = st.number_input("SO2", min_value=0.0, format="%.2f")
 co = st.number_input("CO", min_value=0.00, format="%.2f")
+Proximity_to_Industrial_Areas = st.number_input("Proximity To Industrial Areas", min_value=0.0, format="%.2f")
+Population_Density = st.number_input("Population Density", min_value=0.0, format="%.2f")
 
 if st.button("Prediksi"):
     # Data input berbentuk array 2D
