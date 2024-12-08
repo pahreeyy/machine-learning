@@ -37,18 +37,18 @@ st.markdown(
 col1, col2 = st.columns(2)
 
 with col1:
-    temperature = st.number_input("Temperature (°C)", min_value=0.0, max_value=50.0, value=00.0, step=0.1)
-    humidity = st.number_input("Humidity (%)", min_value=0.0, max_value=100.0, value=00.0, step=0.1)
-    pm25 = st.number_input("PM2.5", min_value=0.0, max_value=500.0, value=00.0, step=0.1)
-    pm10 = st.number_input("PM10", min_value=0.0, max_value=500.0, value=00.0, step=0.1)
+    temperature = st.number_input("Temperature (°C)", min_value=0.0, max_value=50.0, value=10.0, step=0.1)
+    humidity = st.number_input("Humidity (%)", min_value=0.0, max_value=100.0, value=10.0, step=0.1)
+    pm25 = st.number_input("PM2.5", min_value=0.0, max_value=500.0, value=10.0, step=0.1)
+    pm10 = st.number_input("PM10", min_value=0.0, max_value=500.0, value=10.0, step=0.1)
 
 with col2:
-    no2 = st.number_input("NO2", min_value=0.0, max_value=100.0, value=00.0, step=0.1)
-    so2 = st.number_input("SO2", min_value=0.0, max_value=100.0, value=00.0, step=0.1)
+    no2 = st.number_input("NO2", min_value=0.0, max_value=100.0, value=10.0, step=0.1)
+    so2 = st.number_input("SO2", min_value=0.0, max_value=100.0, value=10.0, step=0.1)
     co = st.number_input("CO", min_value=0, max_value=50, value=0, step=1)
-    proximity_to_industrial_areas = st.number_input("Proximity To Industrial Areas (km)", min_value=0.0, max_value=50.0, value=00.0, step=0.1)
+    proximity_to_industrial_areas = st.number_input("Proximity To Industrial Areas (km)", min_value=0.0, max_value=50.0, value=10.0, step=0.1)
 
-population_density = st.number_input("Population Density (people/km²)", min_value=0.0, value=0.0, step=1.0)
+population_density = st.number_input("Population Density (people/km²)", min_value=0.0, value=1.0, step=1.0)
 
 # Cek jika semua nilai 0
 if all(value == 0 for value in [temperature, humidity, pm25, pm10, no2, so2, co, proximity_to_industrial_areas, population_density]):
