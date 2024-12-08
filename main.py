@@ -52,7 +52,7 @@ population_density = st.number_input("Population Density (people/km²)", min_val
 
 # Cek jika semua nilai 0
 if all(value == 0 for value in [temperature, humidity, pm25, pm10, no2, so2, co, proximity_to_industrial_areas, population_density]):
-    st.error("Error: Semua nilai tidak boleh 0. Silakan masukkan nilai yang valid GOBLOK!")
+    st.error("Error: Semua nilai tidak boleh 0. Silakan masukkan nilai yang valid!")
 else:
     # Tombol Prediksi
     if st.button("Prediksi"):
