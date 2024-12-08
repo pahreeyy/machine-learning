@@ -1,16 +1,3 @@
-"""import streamlit as st
-import joblib
-import numpy as np
-
-#Load model dan encoder
-model = joblib.load('ML_AirQualityClassifier.pkl')
-encoder = joblib.load('encoder.pkl')
-
-st.title("Prediksi Konsumsi Obat")
-
-#Input dari pengguna
-"""
-
 import streamlit as st
 import joblib
 import numpy as np
@@ -19,8 +6,9 @@ import numpy as np
 model = joblib.load('ML_AirQualityClassifier.pkl')
 encoder = joblib.load('encoder.pkl')  # Pastikan encoder juga disimpan
 
-st.title("Prediksi Konsumsi Obat")
+st.title("Prediksi Polusi Udara")
 
+"""
 # Input dari pengguna
 age = st.number_input("Age", min_value=0, step=1, value=25)
 sex = st.selectbox("Sex", options=[0, 1], format_func=lambda x: "Female" if x == 0 else "Male")
@@ -37,3 +25,32 @@ if st.button("Prediksi"):
         st.success(f"Pasien mengonsumsi: {pred_drug}")
     except Exception as e:
         st.error(f"Error: {e}")
+"""
+
+def self_prediction():
+    try:
+        # Input dari pengguna
+        Temperature = float(input(''))
+        Humidity = float(input(''))
+        PM25 = float(input(''))
+        PM10 = float(input(''))
+        NO2 = float(input(''))
+        SO2 = float(input(''))
+        CO = float(input(''))
+        Proximity_to_Industrial_Areas = float(input(''))
+        Population_Density = int(input(''))
+
+        # Data harus berbentuk array 2D
+        data = [[Temperature, Humidity, PM25, PM10, NO2, SO2, CO, Proximity_to_Industrial_Areas, Population_Density]]
+
+        # Prediksi dan hasil
+        print('\nPrediction')
+        pred_label = model.predict(data)[0]
+        pred_quality = encoder.inverse_transform([pred_label])[0]
+        print('Air Quality', pred_quality)
+
+    except Exception as e:
+        print('Error:', e)
+
+# Memanggil fungsi
+self_prediction()
