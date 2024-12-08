@@ -24,7 +24,7 @@ if st.button("Prediksi"):
     data = np.array([[temperature, humidity, pm25, pm10, no2, so2, co, proximity_to_industrial_areas, population_density]])
     try:
         pred_label = model.predict(data)[0]
-        pred_drug = encoder.inverse_transform([pred_label])[0]
+        pred_quality = encoder.inverse_transform([pred_label])[0]
         st.success(f"Pasien mengonsumsi: {pred_quality}")
     except Exception as e:
         st.error(f"Error: {e}")
