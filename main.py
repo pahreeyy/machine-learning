@@ -10,7 +10,7 @@ st.title("Prediksi Polusi Udara")
 
 # Input dari pengguna
 temperature = st.number_input("Temperature", min_value=00.0, format="%.2f")
-humidity = st.number_input("PM25", min_value=00.0, format="%.2f")
+humidity = st.number_input("Humidity", min_value=00.0, format="%.2f")
 pm25 = st.number_input("PM25", min_value=0.0, format="%.2f")
 pm10 = st.number_input("PM10", min_value=00.0, format="%.1f")
 no2 = st.number_input("NO2", min_value=00.0, format="%.1f")
