@@ -10,10 +10,10 @@ st.title("Prediksi Polusi Udara")
 
 # Input dari pengguna
 pm25 = st.number_input("PM25", min_value=0.0, format="%.2f")
-pm10 = st.number_input("PM10", min_value=00.0, format="%.3f")
-no2 = st.number_input("NO2", min_value=00.0, format="%.3f")
+pm10 = st.number_input("PM10", min_value=00.0, format="%.1f")
+no2 = st.number_input("NO2", min_value=00.0, format="%.1f")
 so2 = st.number_input("SO2", min_value=0.0, format="%.2f")
-co = st.number_input("CO", min_value=0.00, format="%.3f")
+co = st.number_input("CO", min_value=0.00, format="%.2f")
 
 if st.button("Prediksi"):
     # Data input berbentuk array 2D
