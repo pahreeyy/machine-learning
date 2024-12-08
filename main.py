@@ -25,6 +25,6 @@ if st.button("Prediksi"):
     try:
         pred_label = model.predict(data)[0]
         pred_quality = encoder.inverse_transform([pred_label])[0]
-        st.success(f"Pasien mengonsumsi: {pred_quality}")
+        st.success(f"Air Quality: {pred_quality}")
     except Exception as e:
         st.error(f"Error: {e}")
