@@ -37,3 +37,4 @@ if st.button("Prediksi"):
         st.success(f"Pasien mengonsumsi: {pred_drug}")
     except Exception as e:
         st.error(f"Error: {e}")
+
