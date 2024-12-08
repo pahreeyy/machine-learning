@@ -33,7 +33,7 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-# Input dari pengguna
+#Loyo Tapi Ayo
 col1, col2 = st.columns(2)
 
 with col1:
