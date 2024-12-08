@@ -39,7 +39,7 @@ col1, col2 = st.columns(2)
 with col1:
     temperature = st.number_input("Temperature (°C)", min_value=0.0, max_value=50.0, value=25.0, step=0.1)
     humidity = st.number_input("Humidity (%)", min_value=0.0, max_value=100.0, value=50.0, step=0.1)
-    pm25 = st.number_input("PM25", min_value=0.0, max_value=500.0, value=30.0, step=0.1)
+    pm25 = st.number_input("PM.25", min_value=0.0, max_value=500.0, value=30.0, step=0.1)
     pm10 = st.number_input("PM10", min_value=0.0, max_value=500.0, value=50.0, step=0.1)
 
 with col2:
@@ -50,16 +50,20 @@ with col2:
 
 population_density = st.number_input("Population Density (people/km²)", min_value=0.0, value=100.0, step=1.0)
 
-# Tombol Prediksi
-if st.button("Prediksi"):
-    # Data input berbentuk array 2D
-    data = np.array([[temperature, humidity, pm25, pm10, no2, so2, co, proximity_to_industrial_areas, population_density]])
-    try:
-        pred_label = model.predict(data)[0]
-        pred_quality = encoder.inverse_transform([pred_label])[0]  # Perbaikan nama variabel
-        st.success(f"Air Quality: {pred_quality}")
-    except Exception as e:
-        st.error(f"Error: {e}")
+# Cek jika semua nilai 0
+if all(value == 0 for value in [temperature, humidity, pm25, pm10, no2, so2, co, proximity_to_industrial_areas, population_density]):
+    st.error("Error: Semua nilai tidak boleh 0. Silakan masukkan nilai yang valid GOBLOK!")
+else:
+    # Tombol Prediksi
+    if st.button("Prediksi"):
+        # Data input berbentuk array 2D
+        data = np.array([[temperature, humidity, pm25, pm10, no2, so2, co, proximity_to_industrial_areas, population_density]])
+        try:
+            pred_label = model.predict(data)[0]
+            pred_quality = encoder.inverse_transform([pred_label])[0]  # Perbaikan nama variabel
+            st.success(f"Air Quality: {pred_quality}")
+        except Exception as e:
+            st.error(f"Error: {e}")
 
 # Footer
 st.markdown(

@@ -39,7 +39,7 @@ col1, col2 = st.columns(2)
 with col1:
     temperature = st.number_input("Temperature (°C)", min_value=0.0, max_value=50.0, value=25.0, step=0.1)
     humidity = st.number_input("Humidity (%)", min_value=0.0, max_value=100.0, value=50.0, step=0.1)
-    pm25 = st.number_input("PM25", min_value=0.0, max_value=500.0, value=30.0, step=0.1)
+    pm25 = st.number_input("PM.25", min_value=0.0, max_value=500.0, value=30.0, step=0.1)
     pm10 = st.number_input("PM10", min_value=0.0, max_value=500.0, value=50.0, step=0.1)
 
 with col2:
