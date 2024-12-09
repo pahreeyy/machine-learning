@@ -45,7 +45,7 @@ with col1:
 with col2:
     no2 = st.number_input("NO2", min_value=0.0, max_value=100.0, value=10.0, step=0.1)
     so2 = st.number_input("SO2", min_value=0.0, max_value=100.0, value=10.0, step=0.1)
-    co = st.number_input("CO", min_value=0, max_value=50, value=1, step=1)
+    co = st.number_input("CO", min_value=0.0, max_value=500.0, value=10.0, step=0.1)
     proximity_to_industrial_areas = st.number_input("Proximity To Industrial Areas (km)", min_value=0.0, max_value=50.0, value=10.0, step=0.1)
 
 population_density = st.number_input("Population Density (people/km²)", min_value=0.0, value=1.0, step=1.0)
